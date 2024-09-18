@@ -271,11 +271,17 @@ PRODUCT_PACKAGES += \
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay \
     $(LOCAL_PATH)/overlay-lineage
 
 PRODUCT_ENFORCE_RRO_TARGETS := *
-PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += $(LOCAL_PATH)/overlay/packages/apps/CarrierConfig
+
+PRODUCT_PACKAGES += \
+    CarrierConfigResCommon \
+    FrameworksResCommon \
+    SettingsResCommon \
+    SystemUIResCommon \
+    TelephonyResCommon \
+    WifiResCommon
 
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
@@ -372,7 +378,6 @@ PRODUCT_PACKAGES += \
     libwpa_client \
     libwifi-hal-ctrl \
     libwifi-hal-qcom \
-    WifiResCommon \
     wpa_supplicant \
     wpa_supplicant.conf
 
