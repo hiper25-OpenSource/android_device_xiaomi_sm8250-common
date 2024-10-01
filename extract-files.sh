@@ -78,6 +78,10 @@ function blob_fixup() {
             [ "$2" = "" ] && return 0
             "${PATCHELF}" --replace-needed "android.media.audio.common.types-V2-cpp.so" "android.media.audio.common.types-V3-cpp.so" "${2}"
             ;;
+        vendor/etc/seccomp_policy/atfwd@2.0.policy)
+            [ "$2" = "" ] && return 0
+            grep -q "gettid: 1" "${2}" || echo -e "\ngettid: 1" >> "${2}"
+            ;;
         vendor/etc/init/init.mi_thermald.rc)
             [ "$2" = "" ] && return 0
             sed -i "/seclabel u:r:mi_thermald:s0/d" "${2}"
