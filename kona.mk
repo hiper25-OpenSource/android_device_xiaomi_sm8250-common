@@ -388,6 +388,8 @@ PRODUCT_COPY_FILES += \
 
 # Wi-Fi Display
 PRODUCT_PACKAGES += \
+    libgui_shim \
+    libinput_shim \
     libwfdaac_vendor
 
 PRODUCT_BOOT_JARS += \
